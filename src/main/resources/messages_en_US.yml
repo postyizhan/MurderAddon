@@ -1,0 +1,29 @@
+# English Messages File
+
+# Plugin messages
+plugin:
+  enabled: "&a[MurderAddon] Plugin enabled!"
+  disabled: "&c[MurderAddon] Plugin disabled!"
+  reload: "&a[MurderAddon] Configuration reloaded!"
+  no-permission: "&cYou don't have permission to execute this command!"
+
+# Corpse related messages
+corpse:
+  spawned: "&7Spawned corpse for player &e{player}"
+  removed: "&7Removed corpse for player &e{player}"
+  cleanup: "&7Cleaned up &e{count} &7corpses"
+
+# Error messages
+error:
+  adyeshach-not-found: "&cError: Adyeshach plugin not found!"
+  murder-mystery-not-found: "&cError: MurderMystery plugin not found!"
+  corpse-spawn-failed: "&cFailed to spawn corpse: {reason}"
+  invalid-world: "&cInvalid world: {world}"
+
+# Debug messages (hardcoded English)
+debug:
+  corpse-spawned: "Corpse spawned for player {player} at {location}"
+  corpse-removed: "Corpse removed for player {player}"
+  event-received: "Received death event for player {player} in arena {arena}"
+  manager-initialized: "CorpseManager initialized successfully"
+  cleanup-started: "Starting corpse cleanup task"

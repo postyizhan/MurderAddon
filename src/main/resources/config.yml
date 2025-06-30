@@ -1,0 +1,31 @@
+# MurderAddon 配置文件
+# Configuration file for MurderAddon
+
+# 语言设置 / Language Settings
+language: "zh_CN"  # 支持: zh_CN, en_US
+
+# 尸体设置 / Corpse Settings
+corpse:
+  # 尸体存在时间（秒）/ Corpse duration in seconds
+  duration: 30
+  
+  # 是否显示尸体名称 / Show corpse name
+  show-name: true
+  
+  # 尸体名称格式 / Corpse name format
+  # 占位符: {player} - 死亡玩家名称
+  name-format: "&7{player} 的尸体"
+  
+  # 是否隐藏在玩家列表中 / Hide from tab list
+  hide-from-tab-list: true
+  
+  # 尸体生成高度偏移 / Corpse spawn height offset
+  height-offset: 0.0
+
+# 调试设置 / Debug Settings
+debug:
+  # 是否启用调试模式 / Enable debug mode
+  enabled: false
+  
+  # 调试消息前缀 / Debug message prefix
+  prefix: "&8[&6MurderAddon-Debug&8]&7 "

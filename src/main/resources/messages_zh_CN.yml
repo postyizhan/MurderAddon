@@ -1,0 +1,30 @@
+# 中文消息文件
+# Chinese Messages File
+
+# 插件消息
+plugin:
+  enabled: "&a[MurderAddon] 插件已启用！"
+  disabled: "&c[MurderAddon] 插件已禁用！"
+  reload: "&a[MurderAddon] 配置已重新加载！"
+  no-permission: "&c你没有权限执行此命令！"
+
+# 尸体相关消息
+corpse:
+  spawned: "&7为玩家 &e{player} &7生成了尸体"
+  removed: "&7移除了玩家 &e{player} &7的尸体"
+  cleanup: "&7清理了 &e{count} &7个尸体"
+
+# 错误消息
+error:
+  adyeshach-not-found: "&c错误：未找到 Adyeshach 插件！"
+  murder-mystery-not-found: "&c错误：未找到 MurderMystery 插件！"
+  corpse-spawn-failed: "&c生成尸体失败：{reason}"
+  invalid-world: "&c无效的世界：{world}"
+
+# 调试消息（硬编码英文）
+debug:
+  corpse-spawned: "Corpse spawned for player {player} at {location}"
+  corpse-removed: "Corpse removed for player {player}"
+  event-received: "Received death event for player {player} in arena {arena}"
+  manager-initialized: "CorpseManager initialized successfully"
+  cleanup-started: "Starting corpse cleanup task"
