@@ -31,7 +31,35 @@ class ConfigManager(private val plugin: MurderAddon) {
         private set
     var hideFromTabList: Boolean = true
         private set
-    var heightOffset: Double = 0.0
+
+    // 位置偏移配置 / Position offset configuration
+    var xOffset: Double = 0.0
+        private set
+    var yOffset: Double = 0.0
+        private set
+    var zOffset: Double = 0.0
+        private set
+
+    // 朝向配置 / Rotation configuration
+    var rotationMode: String = "KEEP_DEATH"
+        private set
+    var fixedYaw: Float = 0.0f
+        private set
+    var fixedPitch: Float = 0.0f
+        private set
+
+    // 亡语配置 / Death message configuration
+    var deathMessageEnabled: Boolean = false
+        private set
+    var deathMessageDuration: Int = 5
+        private set
+    var deathMessageHeightOffset: Double = 2.0
+        private set
+
+    // 高级配置 / Advanced configuration
+    var corpseCreationDelay: Long = 10L
+        private set
+    var gameStateCheckDelay: Long = 40L
         private set
     var debugEnabled: Boolean = false
         private set
@@ -68,7 +96,25 @@ class ConfigManager(private val plugin: MurderAddon) {
         showCorpseName = config.getBoolean("corpse.show-name", true)
         corpseNameFormat = config.getString("corpse.name-format", "&7{player} 的尸体") ?: "&7{player} 的尸体"
         hideFromTabList = config.getBoolean("corpse.hide-from-tab-list", true)
-        heightOffset = config.getDouble("corpse.height-offset", 0.0)
+
+        // 加载位置偏移配置 / Load position offset configuration
+        xOffset = config.getDouble("corpse.position-offset.x", 0.0)
+        yOffset = config.getDouble("corpse.position-offset.y", 0.0)
+        zOffset = config.getDouble("corpse.position-offset.z", 0.0)
+
+        // 加载朝向配置 / Load rotation configuration
+        rotationMode = config.getString("corpse.rotation.mode", "KEEP_DEATH") ?: "KEEP_DEATH"
+        fixedYaw = config.getDouble("corpse.rotation.fixed.yaw", 0.0).toFloat()
+        fixedPitch = config.getDouble("corpse.rotation.fixed.pitch", 0.0).toFloat()
+
+        // 加载亡语配置 / Load death message configuration
+        deathMessageEnabled = config.getBoolean("death-message.enabled", false)
+        deathMessageDuration = config.getInt("death-message.duration", 5)
+        deathMessageHeightOffset = config.getDouble("death-message.height-offset", 2.0)
+
+        // 加载高级配置 / Load advanced configuration
+        corpseCreationDelay = config.getLong("advanced.corpse-creation-delay", 10L)
+        gameStateCheckDelay = config.getLong("advanced.game-state-check-delay", 40L)
         debugEnabled = config.getBoolean("debug.enabled", false)
         debugPrefix = config.getString("debug.prefix", "&8[&6MurderAddon-Debug&8]&7 ") ?: "&8[&6MurderAddon-Debug&8]&7 "
     }

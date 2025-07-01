@@ -4,6 +4,7 @@ import com.github.postyizhan.murderAddon.command.MurderAddonCommand
 import com.github.postyizhan.murderAddon.config.ConfigManager
 import com.github.postyizhan.murderAddon.listener.MurderMysteryListener
 import com.github.postyizhan.murderAddon.manager.CorpseManager
+import com.github.postyizhan.murderAddon.manager.DeathMessageManager
 import org.bukkit.plugin.java.JavaPlugin
 
 /**
@@ -21,6 +22,10 @@ class MurderAddon : JavaPlugin() {
 
     // 尸体管理器 / Corpse manager
     lateinit var corpseManager: CorpseManager
+        private set
+
+    // 亡语管理器 / Death message manager
+    lateinit var deathMessageManager: DeathMessageManager
         private set
 
     // 事件监听器 / Event listener
@@ -42,6 +47,10 @@ class MurderAddon : JavaPlugin() {
             // 初始化尸体管理器 / Initialize corpse manager
             corpseManager = CorpseManager(this)
             corpseManager.initialize()
+
+            // 初始化亡语管理器 / Initialize death message manager
+            deathMessageManager = DeathMessageManager(this)
+            deathMessageManager.initialize()
 
             // 注册事件监听器 / Register event listener
             eventListener = MurderMysteryListener(this)
@@ -67,6 +76,11 @@ class MurderAddon : JavaPlugin() {
             // 关闭尸体管理器 / Shutdown corpse manager
             if (::corpseManager.isInitialized) {
                 corpseManager.shutdown()
+            }
+
+            // 关闭亡语管理器 / Shutdown death message manager
+            if (::deathMessageManager.isInitialized) {
+                deathMessageManager.shutdown()
             }
 
             // 插件禁用消息 / Plugin disabled message
