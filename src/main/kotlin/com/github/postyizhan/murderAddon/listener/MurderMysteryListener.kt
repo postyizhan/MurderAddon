@@ -106,11 +106,7 @@ class MurderMysteryListener(private val plugin: MurderAddon) : Listener {
                 return false
             }
             
-            // 检查玩家是否在有效世界中 / Check if player is in valid world
-            if (player.world == null) {
-                return false
-            }
-            
+
             // 获取用户信息 / Get user information
             val mmPlugin = murderMysteryPlugin ?: return false
             val user = mmPlugin.userManager.getUser(player)

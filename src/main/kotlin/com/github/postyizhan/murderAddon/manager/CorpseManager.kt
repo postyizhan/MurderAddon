@@ -64,11 +64,17 @@ class CorpseManager(private val plugin: MurderAddon) {
      */
     fun createCorpse(deadPlayer: Player, location: Location) {
         try {
+            // 检查世界是否有效 / Check if world is valid
+            if (location.world == null) {
+                plugin.logger.warning("Cannot create corpse for ${deadPlayer.name}: location world is null")
+                return
+            }
+
             // 调整位置高度 / Adjust location height
             val adjustedLocation = location.clone().apply {
                 y += plugin.configManager.heightOffset
             }
-            
+
             // 获取 Adyeshach 管理器 / Get Adyeshach manager
             val manager = Adyeshach.api().getPublicEntityManager(ManagerType.TEMPORARY)
             
@@ -127,10 +133,11 @@ class CorpseManager(private val plugin: MurderAddon) {
             
             // 发送消息 / Send message
             if (plugin.configManager.debugEnabled) {
+                val worldName = adjustedLocation.world?.name ?: "unknown"
                 plugin.logger.info(plugin.configManager.getDebugMessage(
                     "Corpse spawned for player {player} at {location}",
                     "player" to deadPlayer.name,
-                    "location" to "${adjustedLocation.world?.name}:${adjustedLocation.blockX},${adjustedLocation.blockY},${adjustedLocation.blockZ}"
+                    "location" to "$worldName:${adjustedLocation.blockX},${adjustedLocation.blockY},${adjustedLocation.blockZ}"
                 ))
             }
             
