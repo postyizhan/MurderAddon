@@ -1,0 +1,32 @@
+name: MurderAddon
+version: '${version}'
+main: com.github.postyizhan.murderAddon.MurderAddon
+api-version: '1.20'
+author: postyizhan
+description: 'An addon plugin for MurderMystery that adds corpse spawning functionality'
+website: 'https://github.com/postyizhan'
+
+# 依赖插件 / Plugin dependencies
+depend:
+  - MurderMystery
+  - Adyeshach
+
+# 软依赖 / Soft dependencies
+softdepend: []
+
+# 权限 / Permissions
+permissions:
+  murderaddon.admin:
+    description: 'Admin permission for MurderAddon'
+    default: op
+  murderaddon.reload:
+    description: 'Permission to reload MurderAddon configuration'
+    default: op
+
+# 命令 / Commands
+commands:
+  murderaddon:
+    description: 'MurderAddon main command'
+    usage: '/murderaddon [reload]'
+    permission: murderaddon.admin
+    aliases: [maddon, ma]
